@@ -39,11 +39,14 @@ Loop over the `employees` array and do the following:
 Write a declared function that takes in one **Employee** object (as an argument to the function), and returns a new **object** with the following properties:
 
 * The `name` property should contain the employee's name.
-* The `bonusPercentage` property should contain the bonus percentage the employee is to receive. See section below for calculation instructions.
+* The `bonusPercentage` property should contain the bonus percentage the employee is to receive. See section below for calculation instructions. 
 * The `totalCompensation` property should be the adjusted annual compensation (base annual + bonus)
 * The `totalBonus` should be the employee's total bonus rounded to the nearest dollar.
 
 ### Individual Bonus calculation
+
+The bonus calculation is a simple number based on the below rules. Don't overthink it. 
+
 - Those who have a rating of a 2 or below should not receive a bonus.
 - Those who have a rating of a 3 should receive a base bonus of 4% of their base annual income.
 - Those who have a rating of a 4 should receive a base bonus of 6% of their base annual income.
