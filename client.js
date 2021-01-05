@@ -43,12 +43,16 @@ function newEmployeeObject(array){
 function newObject(param){
   let newName = param.name;
   let newBonusPercentage = bonusPercentage(param);
+  let salary = param.annualSalary;
+  let newCompensation = tcompensation(salary,newBonusPercentage);
+  let tBonus = salary * newBonusPercentage;
   let newObject = {
     name: newName,
     bonusPercentage: newBonusPercentage,
-    totalCompensation: ,
-    totalBonus:
+    totalCompensation: newCompensation,
+    totalBonus: tBonus
   };
+
 }
 function bonusPercentage(param){
   let percentage = 0;
@@ -92,9 +96,10 @@ function annualSalaryinclusion(el, number){
     return number;
   }
 }
-function tcopmensation(){
-
+function tcompensation(num,percent){
+      return num + (num * percent);
 }
+
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
@@ -105,4 +110,5 @@ function tcopmensation(){
 // Ask questions when you don't.
 
 console.log( employees );
+console.log(newEmployeeObject(employees));
 });
