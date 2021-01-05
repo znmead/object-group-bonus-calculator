@@ -35,11 +35,21 @@ const employees = [
 function newEmployeeObject(array){
   let newArray = [];
   for(let i = 0; i < array.length; i++){
-    newArray.push(newObject(array[i]));
+    //newArray.push(newObject(array[i]));
+    console.log(array[i]);
+    console.log(test(array[i]));
+
   }
   return newArray;
 }
 
+function test(el){
+  return el.name;
+}
+function nameTest(el){
+  el.name
+}
+/*
 function newObject(param){
   let newName = param.name;
   let newBonusPercentage = bonusPercentage(param);
@@ -52,7 +62,7 @@ function newObject(param){
     totalCompensation: newCompensation,
     totalBonus: tBonus
   };
-
+/*
 }
 function bonusPercentage(param){
   let percentage = 0;
@@ -108,6 +118,7 @@ function tcompensation(num,percent){
 
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
+*/
 
 console.log( employees );
 console.log(newEmployeeObject(employees));
