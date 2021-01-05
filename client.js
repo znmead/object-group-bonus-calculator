@@ -1,6 +1,4 @@
-$(document).ready(function(){
-const employees = [
-  {
+const employees = [{
     name: 'Atticus',
     employeeNumber: '2405',
     annualSalary: '47000',
@@ -32,83 +30,71 @@ const employees = [
   }
 ];
 
-function newEmployeeObject(array){
+function newEmployeeObject(array) {
   let newArray = [];
-  for(let i = 0; i < array.length; i++){
+  for (let i = 0; i < array.length; i++) {
     //newArray.push(newObject(array[i]));
-    console.log(array[i]);
-    console.log(test(array[i]));
+    console.log(array[i].employeeNumber.length);
+
+    newArray.push(calculateBonus(array[i]));
 
   }
+  console.log(newArray);
   return newArray;
 }
 
-function test(el){
+function test(el) {
   return el.name;
 }
-function nameTest(el){
-  el.name
-}
-/*
-function newObject(param){
-  let newName = param.name;
-  let newBonusPercentage = bonusPercentage(param);
-  let salary = param.annualSalary;
-  let newCompensation = tcompensation(salary,newBonusPercentage);
-  let tBonus = salary * newBonusPercentage;
-  let newObject = {
-    name: newName,
-    bonusPercentage: newBonusPercentage,
-    totalCompensation: newCompensation,
-    totalBonus: tBonus
-  };
-/*
-}
-function bonusPercentage(param){
+
+function calculateBonus(el) {
   let percentage = 0;
- 
-    if(param.employeeNumber.length > 4) {
-     if(param.reviewRating <= 2){
-       percentage = 0;
-      }
-      else if(param.reviewRating === 3) {
-        percentage = .04;
-      }
-      else if(param.reviewRating === 4) {
-        percentage = .06;
-      }
-      else if(param.reviewRating === 5) {
-        percentage = .1;
-      }
-      percentage += .05;
-    }
+  if (el.reviewRating <= 2) {
+    percentage = 0;
+  } else if (el.reviewRating === 3) {
+    percentage = .04;
+  } else if (el.reviewRating === 4) {
+    percentage = .06;
+  } else if (el.reviewRating === 5) {
+    percentage = .1;
+  }
 
-    else{
-      if (param.reviewRating <= 2) {
-        percentage = 0;
-      } else if (param.reviewRating === 3) {
-        percentage = .04;
-      } else if (param.reviewRating === 4) {
-        percentage = .06;
-      } else if (param.reviewRating === 5) {
-        percentage = .1;
-      }
+  // TODO: If the length <= 4, then update the percentage
+  if (el.employeeNumber.length <= 4) {
+    percentage += .01;
   }
-    return annualSalaryinclusion(param, percentage);
-    
+  
+
+  // TODO: Update it based on 65k
+  if(parseInt(el.annualSalary) > 65000){
+    percentage = percentage - .01; 
+  }
+  // TODO: Make sure its min 0, max 13
+  if(percentage > .13){
+    percentage = .13;
+  }
+  if(percentage < 0){
+    percentage = 0;
+  }
+
+  
+  let newObject = {
+    name: el.name,
+    bonusPercentage: percentage,
+    totalCompensation: Number(el.annualSalary) + (percentage * el.annualSalary),
+    totalBonus: percentage * el.annualSalary,
+    // TODO: Add the calculated total bonus here
+    // TODO: Add the calculated total compensation
+  }
+  return newObject;
 }
 
-function annualSalaryinclusion(el, number){
-  if(el.annualSalary > 65000){
-    return number - .01;
-  }
-  else{
-    return number;
-  }
-}
-function tcompensation(num,percent){
-      return num + (num * percent);
-}
+$(document).ready( function() {
+  newEmployeeObject(employees);
+})
+
+
+
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
@@ -118,8 +104,3 @@ function tcompensation(num,percent){
 
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
-*/
-
-console.log( employees );
-console.log(newEmployeeObject(employees));
-});
