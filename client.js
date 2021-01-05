@@ -42,29 +42,59 @@ function newEmployeeObject(array){
 
 function newObject(param){
   let newName = param.name;
-  let newBonusPercentage = 
+  let newBonusPercentage = bonusPercentage(param);
   let newObject = {
     name: newName,
-    bonusPercentage: ,
+    bonusPercentage: newBonusPercentage,
     totalCompensation: ,
     totalBonus:
   };
 }
 function bonusPercentage(param){
-  if(param.reviewRating <= 2){
-    return = 0;
+  let percentage = 0;
+ 
+    if(param.employeeNumber.length > 4) {
+     if(param.reviewRating <= 2){
+       percentage = 0;
+      }
+      else if(param.reviewRating === 3) {
+        percentage = .04;
+      }
+      else if(param.reviewRating === 4) {
+        percentage = .06;
+      }
+      else if(param.reviewRating === 5) {
+        percentage = .1;
+      }
+      percentage += .05;
+    }
+
+    else{
+      if (param.reviewRating <= 2) {
+        percentage = 0;
+      } else if (param.reviewRating === 3) {
+        percentage = .04;
+      } else if (param.reviewRating === 4) {
+        percentage = .06;
+      } else if (param.reviewRating === 5) {
+        percentage = .1;
+      }
   }
-  else if(param.reviewRating === 3){
-    return annualSalary * .04;
-  }
-  else if(param.reviewrating === 4){
-    return .06;
-  }
-  else if(param.reviewRating === 5){
-    return .10;
-  }
+    return annualSalaryinclusion(param, percentage);
+    
 }
 
+function annualSalaryinclusion(el, number){
+  if(el.annualSalary > 65000){
+    return number - .01;
+  }
+  else{
+    return number;
+  }
+}
+function tcopmensation(){
+
+}
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
