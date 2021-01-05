@@ -1,3 +1,4 @@
+$(document).ready(function(){
 const employees = [
   {
     name: 'Atticus',
@@ -31,6 +32,39 @@ const employees = [
   }
 ];
 
+function newEmployeeObject(array){
+  let newArray = [];
+  for(let i = 0; i < array.length; i++){
+    newArray.push(newObject(array[i]));
+  }
+  return newArray;
+}
+
+function newObject(param){
+  let newName = param.name;
+  let newBonusPercentage = 
+  let newObject = {
+    name: newName,
+    bonusPercentage: ,
+    totalCompensation: ,
+    totalBonus:
+  };
+}
+function bonusPercentage(param){
+  if(param.reviewRating <= 2){
+    return = 0;
+  }
+  else if(param.reviewRating === 3){
+    return annualSalary * .04;
+  }
+  else if(param.reviewrating === 4){
+    return .06;
+  }
+  else if(param.reviewRating === 5){
+    return .10;
+  }
+}
+
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
 // Take small steps! Don't write a for loop and two functions that do all of the calculations right away.
@@ -41,3 +75,4 @@ const employees = [
 // Ask questions when you don't.
 
 console.log( employees );
+});
